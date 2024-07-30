@@ -1,0 +1,15 @@
+// https://leetcode.com/problems/valid-anagram/
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        char[] firstStringCharArray = s.toCharArray();
+        List<Character> secondStringCharArray = t.chars().mapToObj(c -> (char) c).collect(Collectors.toList());
+        for (char oneChar : firstStringCharArray) {
+            if (!secondStringCharArray.remove((Character) oneChar)) {
+                return false;
+            }
+        }
+        return secondStringCharArray.isEmpty() ? true : false;
+    }
+}
+          
