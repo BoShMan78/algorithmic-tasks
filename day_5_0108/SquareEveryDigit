@@ -1,0 +1,15 @@
+// https://www.codewars.com/kata/546e2562b03326a88e000020
+
+import java.util.stream.Collectors;
+
+public class SquareDigit {
+
+  public int squareDigits(int n) {
+    String collect = String.valueOf(n).chars()
+                .mapToObj(c -> Character.getNumericValue(c))
+                .map(i -> (int) Math.pow(i, 2))
+                .map(String::valueOf)
+                .collect(Collectors.joining());
+        return (int) Integer.parseInt(collect);
+  }
+}
