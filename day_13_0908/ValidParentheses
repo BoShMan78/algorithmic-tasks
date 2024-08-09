@@ -1,0 +1,26 @@
+// https://leetcode.com/problems/valid-parentheses/submissions/1349968620/
+
+import java.util.Stack;
+
+class Solution {
+    public boolean isValid(String s) {
+                 char[] charArray = s.toCharArray();
+        Stack<Character> characterStack = new Stack<Character>();
+        for (char c : charArray) {
+            if (c == '(' || c == '[' || c == '{') {
+                characterStack.push(c);
+            } else {
+                if (characterStack.empty()) {
+                    return false;
+                }
+                char top = characterStack.pop();
+                if ((c == ')' && top != '(') ||
+                        (c == ']' && top != '[') ||
+                        (c == '}' && top != '{')) {
+                    return false;
+                }
+            }
+        }
+        return characterStack.isEmpty();
+    }
+}
