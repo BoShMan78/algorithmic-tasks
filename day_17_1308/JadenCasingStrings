@@ -1,0 +1,18 @@
+// https://www.codewars.com/kata/5390bac347d09b7da40006f6/train/java
+
+public class JadenCase {
+
+	public String toJadenCase(String phrase) {
+     if (phrase == null || phrase.isEmpty()) {
+            return null;
+        }
+        String[] words = phrase.split(" ");
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String s : words) {
+            stringBuilder.append(s.substring(0, 1).toUpperCase());
+            stringBuilder.append(s.substring(1)).append(" ");
+        }
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        return stringBuilder.toString();
+	}
+}
