@@ -1,0 +1,14 @@
+// https://www.codewars.com/kata/563b662a59afc2b5120000c6/train/java
+
+class Arge {
+    
+    public static int nbYear(int p0, double percent, int aug, int p) {
+       int currentPopulation = p0;
+        int year = 0;
+        do {
+            currentPopulation = (int) (currentPopulation + currentPopulation * percent / 100 + aug);
+            year++;
+        } while (currentPopulation < p);
+        return year;
+    }
+}
